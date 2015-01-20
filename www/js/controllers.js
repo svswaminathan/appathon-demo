@@ -1,48 +1,46 @@
 angular.module('starter.controllers', [])
+.controller('AdLookupCtrl', function($scope, $stateParams) {
+  $scope.viewModel = {};
+  $scope.viewModel.searchText ='';
+  $scope.viewModel.showResults = false;
+  $scope.viewModel.names = [];
+  
+  var name = {};
+  name.firstName = 'Swaminathan';
+  name.lastName = 'Vetri';
+  name.employeeId = 'T123';
+  name.address = 'Bengaluru, KA, India';
+  name.manager = 'Manager 1';
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  $scope.loginData = {};
+  $scope.viewModel.names.push(name);
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+  var newname = {};
+  newname.firstName = 'Amit';
+  newname.lastName = 'Dixit';
+  newname.employeeId = 'T234';
+  newname.address = 'Bengaluru, KA, India';
+  newname.manager = 'Manager 2';
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
+  $scope.viewModel.names.push(newname);
+
+  $scope.searchGroup = function(){
+    console.log('inside searchGroup');
   };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
+  $scope.clearText = function(){
+    viewModel.searchText = '';
+  }
+
+  $scope.toggleName = function(name) {
+    if ($scope.isNameShown(name)) {
+      $scope.shownName = null;
+    } else {
+      $scope.shownName = name;
+    }
   };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+  $scope.isNameShown = function(name) {
+    return $scope.shownName === name;
   };
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+  
 });

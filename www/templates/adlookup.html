@@ -1,5 +1,44 @@
 <ion-view view-title="AD Lookup">
   <ion-content>
-    <h1>AD Lookup</h1>
+    <!-- <div class="item"> -->
+    	<label class="item item-input">
+    		<input class="item-assertive" type="search" placeholder="active directory group name" ng-model="viewModel.searchText">
+    		</input>
+    		<!-- <button class="button button-icon button-small icon icon-right ion-close-circled" ng-show="viewModel.searchText.length >0" ng-click="clearText()"></button> -->
+    		<button class="button button-icon icon icon-right ion-search" ng-disabled="!viewModel.searchText.length >0" ng-click="searchGroup()"></button>
+    	</label>
+
+    	<ion-list ng-show="viewModel.searchText.length >0">
+    		<div ng-repeat="name in viewModel.names">
+	    		<ion-item class="item-stable"
+	                    ng-click="toggleName(name)"
+	                    ng-class="{active: isNameShown(name)}">
+	              <i class="icon" ng-class="isNameShown(name) ? 'ion-minus' : 'ion-plus'"></i>
+	            &nbsp;
+	            {{name.lastName}}, {{name.firstName}}
+	          </ion-item>
+	           <ion-item class="item-accordion" ng-show="isNameShown(name)">
+	            <!-- <div class="item"> -->
+	            	<label class="item item-input">
+				    	<span class="input-label">Manager</span>
+				    	{{name.manager}}
+				  	</label>
+	            <!-- </div>	 -->
+	             <!-- <div class="item"> -->
+	            	<label class="item item-input">
+				    	<span class="input-label">Employee Id</span>
+				    	{{name.employeeId}}
+				  	</label>
+	            <!-- </div>	 -->
+	             <!-- <div class="item"> -->
+	            	<label class="item item-input">
+				    	<span class="input-label">Address</span>
+				    	{{name.address}}
+				  	</label>
+	            <!-- </div>	 -->
+	          </ion-item>
+      		</div>
+    	</ion-list>
+    <!-- </div> -->
   </ion-content>
 </ion-view>
