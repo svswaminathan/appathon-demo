@@ -1,30 +1,16 @@
 angular.module('starter.controllers', [])
-.controller('AdLookupCtrl', function($scope, $stateParams) {
+.controller('AdLookupCtrl', function($scope, $stateParams, ADLookupService) {
   $scope.viewModel = {};
   $scope.viewModel.searchText ='';
   $scope.viewModel.showResults = false;
-  $scope.viewModel.names = [];
-  
-  var name = {};
-  name.firstName = 'Swaminathan';
-  name.lastName = 'Vetri';
-  name.employeeId = 'T123';
-  name.address = 'Bengaluru, KA, India';
-  name.manager = 'Manager 1';
-
-  $scope.viewModel.names.push(name);
-
-  var newname = {};
-  newname.firstName = 'Amit';
-  newname.lastName = 'Dixit';
-  newname.employeeId = 'T234';
-  newname.address = 'Bengaluru, KA, India';
-  newname.manager = 'Manager 2';
-
-  $scope.viewModel.names.push(newname);
+  $scope.viewModel.users = [];
 
   $scope.searchGroup = function(){
-    console.log('inside searchGroup');
+   ADLookupService.getUsers($scope.viewModel.searchText).then(function(){
+      $scope.viewModel.users.length=0;
+      $scope.viewModel.users = ADLookupService.data.Users;
+      $scope.viewModel.showResults= true;
+   });
   };
 
   $scope.clearText = function(){
