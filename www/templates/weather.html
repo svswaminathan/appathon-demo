@@ -1,5 +1,41 @@
 <ion-view view-title="Weather">
   <ion-content>
-    <h1>weather</h1>
+      <div class="list">
+<!--          <a class="item item-thumbnail-left" href="#">-->
+<!--              <img src="./../img/cloud.png" >-->
+<!--                  <h2>Minneapollis</h2>-->
+<!--                  </a>-->
+<!--          <a class="item" href="#">-->
+<!--              {{weather.temp}}°F-->
+<!--          </a>-->
+<!--          <a class="item" href="#">-->
+<!--              {{weather.warn}}-->
+<!--          </a>-->
+<!--          -->
+<!--          <a class="item item-thumbnail-left" href="#">-->
+<!--              <img src="./../img/Sunny.jpg">-->
+<!--                  <h2>Bangalore</h2>-->
+<!--                  </a>-->
+<!--          <a class="item" href="#">-->
+<!--              {{weather.temp}}°F-->
+<!--          </a>-->
+<!--          <a class="item" href="#">-->
+<!--              {{weather.warn}}-->
+<!--          </a>-->
+
+<li ng-repeat="weather in weathers | filter:query ">
+    <a class="item item-thumbnail-left" href="#">
+        <img src="./../img/cloud.png" >
+            <h2>{{weather.location}}</h2>
+            </a>
+    <a class="item" href="#">
+        {{weather.temp}}°F
+    </a>
+    <a class="item" href="#">
+        {{weather.warn}}
+    </a>
+</li>
+      </div>
+
   </ion-content>
 </ion-view>

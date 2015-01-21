@@ -51,7 +51,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     url: "/weather",
     views: {
       'menuContent': {
-        templateUrl: "templates/weather.html"
+        templateUrl: "templates/weather.html",
+        controller: 'WeatherCtrl'
       }
     }
   })
