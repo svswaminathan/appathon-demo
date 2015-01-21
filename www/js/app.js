@@ -27,7 +27,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
+    // controller: 'AppCtrl'
   })
 
   .state('app.landingpage', {
@@ -69,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: "templates/adlookup.html",
-          controller: 'PlaylistsCtrl'
+          controller: 'AdLookupCtrl'
         }
       }
     });
