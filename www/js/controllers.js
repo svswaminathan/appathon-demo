@@ -8,10 +8,13 @@ angular.module('starter.controllers', [])
             
             $scope.searchGroup = function(){
             ADLookupService.getUsers($scope.viewModel.searchText).then(function(){
-                                                                       $scope.viewModel.users.length=0;
-                                                                       $scope.viewModel.users = ADLookupService.data.Users;
-                                                                       $scope.viewModel.showResults= true;
-                                                                       });
+             $scope.viewModel.users.length=0;
+             $scope.viewModel.users = ADLookupService.data.Users;
+             $scope.viewModel.showResults= true;
+             },function(){
+              $scope.viewModel.users.length=0;
+              $scope.viewModel.showResults= true;
+             });
             
             
             $scope.clearText = function(){
@@ -37,23 +40,14 @@ angular.module('starter.controllers', [])
       $scope.viewModel = {};
       $scope.viewModel.weathers = [];
       WeatherService.getblrweather().then(function(){
-                   $scope.viewModel.weathers.length=0;
-                   $scope.viewModel.weathers = WeatherService.data.Weatherdata;
-                   angular.forEach($scope.viewModel.weathers,function(weather){
-                    weather.iconUrl = "http://openweathermap.org/img/w/" + weather.weather[0].icon +".png";
-                   })
-                   $scope.viewModel.showResults= true;
+       $scope.viewModel.weathers.length=0;
+       $scope.viewModel.weathers = WeatherService.data.Weatherdata;
+       angular.forEach($scope.viewModel.weathers,function(weather){
+        weather.iconUrl = "http://openweathermap.org/img/w/" + weather.weather[0].icon +".png";
+       })
+       $scope.viewModel.showResults= true;
 
-      });
-                // $scope.weathers = [
-                //                   {'location': 'Bangalore',
-                //                   'temp': '75',
-                //                   'warn': 'No warnnig'},
-                //                   {'location': 'Minneapollis',
-                //                   'temp': '32',
-                //                   'warn': 'severe snow storm'},
-                //                   ];
-                
+      });       
      })
 
           

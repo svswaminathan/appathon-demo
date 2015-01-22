@@ -1,59 +1,30 @@
 <ion-view view-title="Weather">
   <ion-content>
-      <div class="list">
-<!--          <a class="item item-thumbnail-left" href="#">-->
-<!--              <img src="./../img/cloud.png" >-->
-<!--                  <h2>Minneapollis</h2>-->
-<!--                  </a>-->
-<!--          <a class="item" href="#">-->
-<!--              {{weather.temp}}°F-->
-<!--          </a>-->
-<!--          <a class="item" href="#">-->
-<!--              {{weather.warn}}-->
-<!--          </a>-->
-<!--          -->
-<!--          <a class="item item-thumbnail-left" href="#">-->
-<!--              <img src="./../img/Sunny.jpg">-->
-<!--                  <h2>Bangalore</h2>-->
-<!--                  </a>-->
-<!--          <a class="item" href="#">-->
-<!--              {{weather.temp}}°F-->
-<!--          </a>-->
-<!--          <a class="item" href="#">-->
-<!--              {{weather.warn}}-->
-<!--          </a>-->
-
-<div ng-repeat="weather in viewModel.weathers | filter:query ">
-  <div class="item-divider">
-  {{weather.name}}
-  </div>
-    <a class="item item-thumbnail-left" href="#">
-        <img src="{{weather.iconUrl}}" >
-        {{weather.weather[0].description}}
-    </a>
-    <div class="row">
-      <div class="col">
-        <label class="item-input">
-          <span class="input-label">Current</span>
-          <span class="input-label">{{weather.main.temp}} </span>
-        </label>
-      </div>
-      <div class="col">
-        <label class="item-input">
-          <span class="input-label">Max</span>
-          <span class="input-label">{{weather.main.temp_max}}</span>
-        </label>
-      </div>
-      <div class="col">
-        <label class="item-input">
-          <span class="input-label">Min</span>
-          <span class="input-label">{{weather.main.temp_min}}</span>
-        </label>
+    <div class="list">
+      <div class="card" ng-repeat="weather in viewModel.weathers | filter:query ">
+        <div class="item-divider">
+          <h3>{{weather.name}}</h3>
+        </div>
+        <div class="item item-thumbnail-left" href="#">
+          <img src="{{weather.iconUrl}}" >
+          {{weather.weather[0].description}} <br>
+          <h1 class="title">{{weather.main.temp}} °C</h1>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="item-input item-stacked-label">
+              <span class="input-label">Max</span><br>
+              {{weather.main.temp_max}}
+            </label>
+          </div>
+          <div class="col">
+            <label class="item-input item-stacked-label">
+              <span class="input-label">Min</span><br>
+              {{weather.main.temp_min}}
+            </label>
+          </div>
+        </div>
       </div>
     </div>
-    
-</div>
-      </div>
-
   </ion-content>
 </ion-view>
