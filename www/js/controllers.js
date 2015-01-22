@@ -48,6 +48,13 @@ angular.module('starter.controllers', [])
        $scope.viewModel.showResults= true;
 
       });       
-     })
+    })
+
+    .controller('TimeZoneCtrl', function($scope, $stateParams) {
+      $scope.blrtime = new Date( new Date().getTime() + 5.50 * 3600 * 1000).toUTCString().replace( / GMT$/, "" );
+      $scope.mplstime = new Date( new Date().getTime() - 6 * 3600 * 1000).toUTCString().replace( / GMT$/, "" );
+
+    });       
+
 
           

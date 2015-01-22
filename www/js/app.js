@@ -42,7 +42,9 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     url: "/timezone",
     views: {
       'menuContent': {
-        templateUrl: "templates/timezone.html"
+        templateUrl: "templates/timezone.html",
+        controller: 'TimeZoneCtrl'
+
       }
     }
   })
