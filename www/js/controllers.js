@@ -33,14 +33,27 @@ angular.module('starter.controllers', [])
     })
             
             
-            .controller('WeatherCtrl', function($scope, $stateParams) {
-                        $scope.weathers = [
-                                          {'location': 'Bangalore',
-                                          'temp': '75',
-                                          'warn': 'No warnnig'},
-                                          {'location': 'Minneapollis',
-                                          'temp': '32',
-                                          'warn': 'severe snow storm'},
-                                          ];
-                        
-             });
+    .controller('WeatherCtrl', function($scope, $stateParams, WeatherService) {
+      $scope.viewModel = {};
+      $scope.viewModel.weathers = [];
+      WeatherService.getblrweather().then(function(){
+                   $scope.viewModel.weathers.length=0;
+                   $scope.viewModel.weathers = WeatherService.data.Weatherdata;
+                   angular.forEach($scope.viewModel.weathers,function(weather){
+                    weather.iconUrl = "http://openweathermap.org/img/w/" + weather.weather[0].icon +".png";
+                   })
+                   $scope.viewModel.showResults= true;
+
+      });
+                // $scope.weathers = [
+                //                   {'location': 'Bangalore',
+                //                   'temp': '75',
+                //                   'warn': 'No warnnig'},
+                //                   {'location': 'Minneapollis',
+                //                   'temp': '32',
+                //                   'warn': 'severe snow storm'},
+                //                   ];
+                
+     })
+
+          

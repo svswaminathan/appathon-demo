@@ -23,18 +23,36 @@
 <!--              {{weather.warn}}-->
 <!--          </a>-->
 
-<li ng-repeat="weather in weathers | filter:query ">
+<div ng-repeat="weather in viewModel.weathers | filter:query ">
+  <div class="item-divider">
+  {{weather.name}}
+  </div>
     <a class="item item-thumbnail-left" href="#">
-        <img src="./../img/cloud.png" >
-            <h2>{{weather.location}}</h2>
-            </a>
-    <a class="item" href="#">
-        {{weather.temp}}°F
+        <img src="{{weather.iconUrl}}" >
+        {{weather.weather[0].description}}
     </a>
-    <a class="item" href="#">
-        {{weather.warn}}
-    </a>
-</li>
+    <div class="row">
+      <div class="col">
+        <label class="item-input">
+          <span class="input-label">Current</span>
+          <span class="input-label">{{weather.main.temp}} </span>
+        </label>
+      </div>
+      <div class="col">
+        <label class="item-input">
+          <span class="input-label">Max</span>
+          <span class="input-label">{{weather.main.temp_max}}</span>
+        </label>
+      </div>
+      <div class="col">
+        <label class="item-input">
+          <span class="input-label">Min</span>
+          <span class="input-label">{{weather.main.temp_min}}</span>
+        </label>
+      </div>
+    </div>
+    
+</div>
       </div>
 
   </ion-content>
