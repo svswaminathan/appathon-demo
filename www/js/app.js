@@ -63,7 +63,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     url: "/helpdesk",
     views: {
       'menuContent': {
-        templateUrl: "templates/helpdesk.html"
+        templateUrl: "templates/helpdesk.html",
+        controller: 'HelpDeskCtrl'
       }
     }
   })

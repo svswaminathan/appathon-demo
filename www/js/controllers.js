@@ -32,6 +32,10 @@ angular.module('starter.controllers', [])
             $scope.isNameShown = function(name) {
             return $scope.shownName === name;
             };
+            
+            
+            
+            
         };
     })
             
@@ -46,15 +50,29 @@ angular.module('starter.controllers', [])
         weather.iconUrl = "http://openweathermap.org/img/w/" + weather.weather[0].icon +".png";
        })
        $scope.viewModel.showResults= true;
-
+                                          
       });       
     })
 
     .controller('TimeZoneCtrl', function($scope, $stateParams) {
       $scope.blrtime = new Date( new Date().getTime() + 5.50 * 3600 * 1000).toUTCString().replace( / GMT$/, "" );
       $scope.mplstime = new Date( new Date().getTime() - 6 * 3600 * 1000).toUTCString().replace( / GMT$/, "" );
+    })
 
-    });       
+
+.controller('HelpDeskCtrl', function($scope, $stateParams) {
+            $scope.callnumber = function(number) {
+              window.plugins.CallNumber.callNumber(onSuccess, onError, number);
+            }
+            function onSuccess()
+            {
+                alert('onSuccess');
+            }
+            function onError()
+            {
+                alert('onError');
+            }
+
+            });
 
 
-          
