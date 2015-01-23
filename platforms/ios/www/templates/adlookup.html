@@ -1,0 +1,43 @@
+<ion-view view-title="AD Lookup">
+  <ion-content>
+    <!-- <div class="item"> -->
+    	<div class="item item-input">
+    		<input class="item-assertive" type="search" placeholder="active directory group name" ng-model="viewModel.searchText">
+    		<button class="button button-icon icon icon-right ion-search" ng-disabled="!viewModel.searchText.length >0" ng-click="searchGroup()"></button>
+    	</div>
+
+    	<ion-list ng-show="viewModel.searchText.length >0">
+    		<div ng-repeat="user in viewModel.users">
+	    		<ion-item class="item-stable"
+	                    ng-click="toggleName(user)"
+	                    ng-class="{active: isNameShown(user)}">
+	              <i class="icon" ng-class="isNameShown(user) ? 'ion-minus' : 'ion-plus'"></i>
+	            &nbsp;
+	            {{user.GivenName}}, {{user.Surname}}
+	          </ion-item>
+	           <ion-item class="item-accordion" ng-show="isNameShown(user)">
+	            	<label class="item item-input">
+				    	<span class="input-label">Display Name</span>
+				    	{{user.DisplayName}}
+				  	</label>
+	            
+	            	<label class="item item-input">
+				    	<span class="input-label">Employee Id</span>
+				    	{{user.EmployeeId}}
+				  	</label>
+	            	<label class="item item-input">
+				    	<span class="input-label">Email</span>
+				    	<a ng-href="mailto:{{user.EmailAddress}}" class="button button-positive button-clear">{{user.EmailAddress}}</a> 
+				  	</label>
+				  	<label class="item item-input">
+				    	<span class="input-label">Phone</span>
+				    	<a ng-href="tel:+{{user.VoiceTelephoneNumber}}" class="button button-positive button-clear">{{user.VoiceTelephoneNumber}}</a>
+				  	</label>
+	          </ion-item>
+      		</div>
+    	</ion-list>
+    	<div class="class" ng-show="viewModel.users.length == 0 && viewModel.showResults">
+    		No search results found.
+    	</div>
+  </ion-content>
+</ion-view>
