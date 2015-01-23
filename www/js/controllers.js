@@ -50,7 +50,6 @@ angular.module('starter.controllers', [])
         weather.iconUrl = "http://openweathermap.org/img/w/" + weather.weather[0].icon +".png";
        })
        $scope.viewModel.showResults= true;
-                                          
       });       
     })
  

@@ -27,11 +27,11 @@
 				  	</label>
 	            	<label class="item item-input">
 				    	<span class="input-label">Email</span>
-				    	{{user.EmailAddress}}
+				    	<a ng-href="mailto:{{user.EmailAddress}}" class="button button-positive button-clear">{{user.EmailAddress}}</a> 
 				  	</label>
 				  	<label class="item item-input">
 				    	<span class="input-label">Phone</span>
-				    	<input type="tel" value="{{user.VoiceTelephoneNumber}}">
+				    	<a ng-href="tel:+{{user.VoiceTelephoneNumber}}" class="button button-positive button-clear">{{user.VoiceTelephoneNumber}}</a>
 				  	</label>
 	          </ion-item>
       		</div>

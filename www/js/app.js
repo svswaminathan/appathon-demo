@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
+ 
   .state('app', {
     url: "/app",
     abstract: true,

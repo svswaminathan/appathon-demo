@@ -38,7 +38,6 @@ angular.module('starter.services',[])
 				angular.forEach(responseData.list, function(weather){
 				data.Weatherdata.push(weather);
 			});
-			
 			console.log('service returned : '+ data.Weatherdata.length + " Weatherdata");
 			d.resolve();
 		}).error(function(data){
