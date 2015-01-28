@@ -11,7 +11,7 @@ Steps to run this application
 
 * If any SSL related issues arise on above npm install commands, run the below ones & then re-run the above commands, else skip this step
 	* `$ npm config set strict-ssl false`
-	* `$ npm config set registry “http://registry.npmjs.org”`
+	* `$ npm config set registry http://registry.npmjs.org`
 
 * Navigate to the directory where this codebase is cloned/downloaded
 	* `$ ionic serve` -- serves the application from a local node server
